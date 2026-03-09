@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -12,10 +13,13 @@ class UserController extends Controller
     {
         //tambah data user dg eloquent model
         $data = [
-            'nama' => 'Pelanggan pertama',
+            'level_id' => 2,
+            'username' => 'manager_tiga',
+            'nama' => 'Manager 3',
+            'password' => Hash::make('12345')
         ];
 
-        UserModel::where('username', 'customer-1')->update($data);//update data user
+        UserModel::create($data);//update data user
 
         //coba akses model usrmodel
         $user = UserModel::all();//ambil semua data dr table m_user

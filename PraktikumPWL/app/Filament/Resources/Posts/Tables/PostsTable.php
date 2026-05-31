@@ -18,7 +18,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Actions\Action;
 use Filament\Forms\Components\Checkbox;
-
+use Filament\Forms\Components\Select;
 
 class PostsTable
 {
@@ -43,6 +43,7 @@ class PostsTable
                     ->searchable(),
 
                 TextColumn::make('category.name')
+                    ->label('Category')
                     ->sortable()
                     ->toggleable()
                     ->searchable(),
